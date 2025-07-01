@@ -98,8 +98,6 @@ export const App: React.FC = () => {
 
   function deleteTodo(todoId: number) {
     handleError('');
-    // const todoToDelete = todos.find(todo => todo.id === todoId);
-
     setloadingTodoId(prev => [...prev, todoId]);
 
     return service
