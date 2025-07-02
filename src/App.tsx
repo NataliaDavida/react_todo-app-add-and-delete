@@ -67,7 +67,7 @@ export const App: React.FC = () => {
     }
   }, [loading, tempTodo, todos.length, isSubmiting]);
 
-  function addTodo({ userId, title: newTitle, completed }: Todo) {
+  const addTodo = ({ userId, title: newTitle, completed }: Todo) => {
     handleError('');
     const newTempTodo: Todo = {
       id: 0,
@@ -94,9 +94,9 @@ export const App: React.FC = () => {
         setLoading(false);
         inputRef.current?.focus();
       });
-  }
+  };
 
-  function deleteTodo(todoId: number) {
+  const deleteTodo = (todoId: number) => {
     handleError('');
     setloadingTodoId(prev => [...prev, todoId]);
 
@@ -111,12 +111,12 @@ export const App: React.FC = () => {
       .finally(() => {
         setloadingTodoId(prev => prev.filter(id => id !== todoId));
       });
-  }
+  };
 
-  function reset() {
+  const reset = () => {
     setTitle('');
     inputRef.current?.focus();
-  }
+  };
 
   const clearCompletedTodos = () => {
     const completedTodos = todos.filter(todo => todo.completed);

@@ -7,7 +7,7 @@ type Props = {
   tempTodo: Todo | null;
   onDelete: (id: number) => void;
   loadingTodoId: number[];
-  //  onToggleComplete: (id: number, completed: boolean) => void;
+  // onToggleComplete: (id: number, completed: boolean) => void;
 };
 
 export const TodoList: React.FC<Props> = ({
@@ -34,6 +34,7 @@ export const TodoList: React.FC<Props> = ({
           key={0}
           todo={tempTodo}
           onDelete={onDelete}
+          // onToggleComplete={onToggleComplete}
           isLoading={true}
         />
       )}

@@ -24,38 +24,24 @@ export const Footer: React.FC<Props> = ({
       </span>
 
       <nav className="filter" data-cy="Filter">
-        <a
-          href="#/"
-          className={classNames('filter__link', {
-            selected: filter === FilterType.All,
-          })}
-          data-cy="FilterLinkAll"
-          onClick={() => setFilter(FilterType.All)}
-        >
-          All
-        </a>
-
-        <a
-          href="#/active"
-          className={classNames('filter__link', {
-            selected: filter === FilterType.Active,
-          })}
-          data-cy="FilterLinkActive"
-          onClick={() => setFilter(FilterType.Active)}
-        >
-          Active
-        </a>
-
-        <a
-          href="#/completed"
-          className={classNames('filter__link', {
-            selected: filter === FilterType.Completed,
-          })}
-          data-cy="FilterLinkCompleted"
-          onClick={() => setFilter(FilterType.Completed)}
-        >
-          Completed
-        </a>
+        {Object.values(FilterType).map(type => {
+          return (
+            <a
+              key={type}
+              href="#/"
+              className={classNames('filter__link', {
+                selected: filter === type,
+              })}
+              data-cy={`FilterLink${type.charAt(0).toUpperCase()}${type.slice(1)}`}
+              onClick={e => {
+                e.preventDefault();
+                setFilter(type);
+              }}
+            >
+              {type.charAt(0).toLocaleUpperCase() + type.slice(1)}
+            </a>
+          );
+        })}
       </nav>
 
       <button

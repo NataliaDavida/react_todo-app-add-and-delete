@@ -54,9 +54,9 @@ export const Header: React.FC<Props> = ({
       {/* this button should have `active` class only if all todos are completed */}
       <button
         type="button"
-        className={
-          todo?.completed ? 'todoapp__toggle-all active' : 'todoapp__toggle-all'
-        }
+        className={classNames('todoapp__toggle-all', {
+          active: todo?.completed,
+        })}
         data-cy="ToggleAllButton"
       />
 

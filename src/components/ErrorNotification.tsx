@@ -1,13 +1,5 @@
 import classNames from 'classnames';
 
-{
-  /* DON'T use conditional rendering to hide the notification */
-}
-
-{
-  /* Add the 'hidden' class to hide the message smoothly */
-}
-
 type Props = {
   error: string;
   setError: (message: string) => void;
