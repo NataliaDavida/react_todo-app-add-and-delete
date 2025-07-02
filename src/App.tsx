@@ -69,6 +69,7 @@ export const App: React.FC = () => {
 
   const addTodo = ({ userId, title: newTitle, completed }: Todo) => {
     handleError('');
+    
     const newTempTodo: Todo = {
       id: 0,
       userId,
